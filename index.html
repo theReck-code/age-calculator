@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+<div class="theme-switch">
+    <input type="checkbox" id="themeToggle">
+    <label for="themeToggle">
+        <span class="icon moon">🌙</span>
+        <span class="icon sun">☀️</span>
+    </label>
+</div>
+
+    <h2 class="title">● Calculate your Age here!!</h2>
+    <div class="form-group">
+    <label>Name of the person <span>*</span></label>
+    <div class="row">
+        <input
+            type="text"
+            id="personName"
+            placeholder="Enter name"
+            required
+        />
+    </div>
+</div>
+
+    <div class="form-group">
+        <label>Your Date of Birth <span>*</span></label>
+        <div class="row">
+            <select id="dob-day"></select>
+            <select id="dob-month"></select>
+            <select id="dob-year"></select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Current Date  <span>*</span></label>
+        <div class="row">
+            <select id="cur-day"></select>
+            <select id="cur-month"></select>
+            <select id="cur-year"></select>
+        </div>
+    </div>
+    
+
+
+    <button id="calculateBtn">✨ Fetch Age ✨</button>
+    <div id="exportArea">
+        <p id="result"></p>
+    </div>
+    <div class="export-buttons">
+        <button id="copyBtn">📋 Copy</button>
+        <button id="pdfBtn">📄 Download PDF</button>
+    </div>
+    <button id="clearBtn" class="clear-btn">🧹 Clear Saved Data</button>
+
+    
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="script.js"></script>
+<script src="darkMode.js"></script>
+<script src="export.js"></script>
+</body>
+</html>
