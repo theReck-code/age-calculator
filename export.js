@@ -1,10 +1,8 @@
-// EXPORT RESULT FEATURES
-
 const copyBtn = document.getElementById("copyBtn");
 const pdfBtn = document.getElementById("pdfBtn");
 const shareBtn = document.getElementById("shareBtn");
 
-// COPY TO CLIPBOARD
+// Copy the details
 copyBtn.addEventListener("click", () => {
     if (!result.innerText.trim()) {
         alert("Nothing to copy!");
@@ -16,9 +14,7 @@ copyBtn.addEventListener("click", () => {
         .catch(() => alert("Copy failed"));
 });
 
-// ======================
-// DOWNLOAD AS PDF (100% WORKING)
-// ======================
+// Download as a pdf
 pdfBtn.addEventListener("click", () => {
     const text = result.innerText.trim();
 

@@ -70,7 +70,7 @@ button {
     font-weight: bold;
 
     display: block;
-    margin: 0 auto; /* centers the button */
+    margin: 0 auto; 
 }
 
 button:hover {
@@ -87,7 +87,7 @@ button:hover {
 
 }
 #calculateBtn {
-    color: #ffffff; /* change to any color you want */
+    color: #ffffff; 
 }
 input[type="text"] {
     width: 100%;
@@ -175,9 +175,7 @@ body.dark-mode .clear-btn {
 }
 
 */
-/* ======================
-   THEME SWITCH (MOON / SUN)
-====================== */
+
 
 .container {
     position: relative;
@@ -245,7 +243,7 @@ body.dark-mode .container {
 }
 
 
-   /* EXPORT BUTTONS */
+   /* EXPORT button */
 
 .export-buttons {
     margin-top: 20px;

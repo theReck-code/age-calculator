@@ -16,38 +16,37 @@ const months = [
     "July","August","September","October","November","December"
 ];
 
-// Populate days
+//  days
 function populateDays(select) {
     for (let i = 1; i <= 31; i++) {
         select.innerHTML += `<option value="${i}">${i}</option>`;
     }
 }
 
-// Populate months
+//  months
 function populateMonths(select) {
     months.forEach((month, index) => {
         select.innerHTML += `<option value="${index}">${month}</option>`;
     });
 }
 
-// Populate years
+//  years
 function populateYears(select, start, end) {
     for (let i = start; i <= end; i++) {
         select.innerHTML += `<option value="${i}">${i}</option>`;
     }
 }
 
-// Initialize DOB dropdowns
+
 populateDays(dobDay);
 populateMonths(dobMonth);
-populateYears(dobYear, 1950, new Date().getFullYear());
+populateYears(dobYear, 1980, new Date().getFullYear());
 
-// Initialize CURRENT DATE dropdowns
 populateDays(curDay);
 populateMonths(curMonth);
-populateYears(curYear, 1950, new Date().getFullYear());
+populateYears(curYear, 1980, new Date().getFullYear());
 
-// CURRENT DATE TO TODAY
+// Currently today date
 const today = new Date();
 
 curDay.value = today.getDate();
@@ -118,19 +117,17 @@ document.getElementById("calculateBtn").addEventListener("click", () => {
     const name = personName.value.trim() || "You";
 
     
-    // NEXT BIRTHDAY CALCULATION
+    // Next birthday info
     let nextBirthday = new Date(
         currentDate.getFullYear(),
         birthDate.getMonth(),
         birthDate.getDate()
     );
 
-// If birthday already passed this year, move to next year
     if (nextBirthday < currentDate) {
         nextBirthday.setFullYear(currentDate.getFullYear() + 1);
     }
 
-// Difference in days
     const oneDay = 1000 * 60 * 60 * 24;
     const daysRemaining = Math.ceil(
         (nextBirthday - currentDate) / oneDay
@@ -151,7 +148,7 @@ document.getElementById("calculateBtn").addEventListener("click", () => {
         : `${daysRemaining} days remaining`}
 `;
 
-// SAVE DATA TO localStorage
+// Save data info
 const savedData = {
     name: personName.value.trim(),
     dobDay: dobDay.value,
@@ -170,7 +167,7 @@ localStorage.setItem("ageCalculatorData", JSON.stringify(savedData));
 
 
 
-// AUTO-LOAD SAVED DATA ON PAGE REFRESH
+
 window.addEventListener("DOMContentLoaded", () => {
     const savedData = localStorage.getItem("ageCalculatorData");
     if (!savedData) return;
@@ -191,24 +188,21 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// CLEAR SAVED DATA
+// Clear data info
 document.getElementById("clearBtn").addEventListener("click", () => {
     if (confirm("Are you sure you want to clear saved data?")) {
         localStorage.removeItem("ageCalculatorData");
 
-        // Clear inputs
         personName.value = "";
         dobDay.selectedIndex = 0;
         dobMonth.selectedIndex = 0;
         dobYear.selectedIndex = 0;
 
-        // Reset current date to today
         const today = new Date();
         curDay.value = today.getDate();
         curMonth.value = today.getMonth();
         curYear.value = today.getFullYear();
 
-        // Clear result
         result.innerHTML = "";
 
         alert("Saved data cleared successfully!");
